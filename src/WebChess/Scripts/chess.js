@@ -88,6 +88,3 @@ function drawBoard(board){
     }
     $('#board').append(str);
 }
-Function isMoveValid(){
-	
-}
