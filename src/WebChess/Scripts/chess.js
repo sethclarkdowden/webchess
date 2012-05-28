@@ -68,23 +68,24 @@ function getPieceName(pieceValue){
             break;
     }
 }
-
-$(function(){
-
-    drawBoard(board);
-});
-
 function drawBoard(board){
     var str = '';
     for( var i = 0 ; i < 8 ; i++ ){
         str += '<div class="row">';
         for( var j = 0 ; j < 8 ; j++ ){
-            str += '<div class="column ' +
+            str += '<div class="column droppable ' +
             ( (i + j) % 2 === 0 ? 'light': 'dark') + '">' +
-            '<div class="' + getPieceName(board[i][j]) + '"></div>' +
+            '<div class="' + getPieceName(board[i][j]) + ' draggable"></div>' +
             '</div>';
         }
         str += '</div>';
     }
     $('#board').append(str);
 }
+
+$(function () {
+
+    drawBoard(board);
+    $(".draggable").draggable();
+    $(".droppable").droppable(function () { });
+});
