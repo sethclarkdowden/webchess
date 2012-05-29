@@ -86,6 +86,6 @@ function drawBoard(board){
 $(function () {
 
     drawBoard(board);
-    $(".draggable").draggable();
+    $(".draggable").draggable( {grid: [50, 50], containment: '#board'});
     $(".droppable").droppable(function () { });
 });
